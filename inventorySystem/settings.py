@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'inventorySystem.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgres://andywork_user:P53d2FuJ67mzjYDMitWEDo9I8dnnmdkP@dpg-co6oie0l6cac73ad6vqg-a.oregon-postgres.render.com/andywork',
+        default='postgres://fx256_inventory_user:fcks9edUf1ASFhZhyQb1pkwawQE6oij6@dpg-co3tsq21hbls73bmlb2g-a.oregon-postgres.render.com/fx256_inventory',
         conn_max_age=600
     )
 }
