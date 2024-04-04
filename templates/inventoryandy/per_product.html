@@ -1,0 +1,103 @@
+{% extends "../layout.html" %}
+
+{% block content %}
+<div class="content-section">
+    <div class="row mx-auto justify-content-center">
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Product Name</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fab fa-product-hunt"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.name }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Quantity in Stock</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-warehouse"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.quantity_in_stock }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Quantity Sold</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-warehouse"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.quantity_sold }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Price Per {{ inventoryandy.name }}</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.cost_per_item }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Sales or Revenue</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.sales_or_revenue }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Remaining Quantity</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-box"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.remaining_quantity }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Stock Date</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-calendar-alt"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.stock_date }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Last sales Date</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fas fa-calendar-alt"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventoryandy.last_sales_date }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Barcode</h5>
+                <!-- Display barcode image here -->
+                <div class="text-center">
+                    {% with barcode_url=request.build_absolute_uri|add:'generate_barcode' %}
+                    <img src="{{ barcode_url }}?barcode_value={{ inventoryandy.id }}" alt="Barcode">
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+        
+        <a class="btn btn-outline-success btn-sm mb-3" href="{% url 'update_inventory' inventoryandy.id %}">Update inventory</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'delete_inventory' inventoryandy.id %}">delete inventory</a>
+    </div>
+</div>
+{% endblock %}

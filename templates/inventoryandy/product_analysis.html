@@ -1,0 +1,107 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    <h2 class="text-center">Product Analysis</h2>
+    <div class="row mx-auto justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0">Best Performing Product</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ best_performing_product.name }}<br>
+                        <strong>Sales:</strong> {{ best_performing_product.sales }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0">Most Product in Stock</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ most_product_in_stock.name }}<br>
+                        <strong>Quantity in Stock:</strong> {{ most_product_in_stock.quantity_in_stock }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="card-title mb-0">Worst Performing Product</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ worst_performing_product.name }}<br>
+                        <strong>Quantity Sold:</strong> {{ worst_performing_product.quantity_sold }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="card-title mb-0">Least Product in Stock</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ least_product_in_stock.name }}<br>
+                        <strong>Remaining Quantity:</strong> {{ least_product_in_stock.remaining_quantity }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Most Purchased Product</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ most_purchased_product.name }}<br>
+                        <strong>Quantity Sold:</strong> {{ most_purchased_product.quantity_sold }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Least Purchased Product</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ least_purchased_product.name }}<br>
+                        <strong>Quantity Sold:</strong> {{ least_purchased_product.quantity_sold }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="card-title mb-0">Product Generating Lowest Income</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Name:</strong> {{ lowest_income_product.name }}<br>
+                        <strong>Sales:</strong> {{ lowest_income_product.sales }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

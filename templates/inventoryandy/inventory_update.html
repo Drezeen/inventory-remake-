@@ -1,0 +1,42 @@
+{% extends "../layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="content-section" >
+    <form id="update-inventory-form" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend class="border-bottom pd-2 mb-4 text-center">Update Inventory Form</legend>
+            <div class="form-group">
+                {{ form|crispy }}
+            </div>
+            <!-- Add barcode input field -->
+            <div class="form-group">
+                <label for="barcode">Scan Barcode:</label>
+                <input type="text" id="barcode" name="barcode" class="form-control">
+            </div>
+            <div class="form-group pt-4">
+                <button class="btn btn-outline-success" type="submit">Update Inventory</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // JavaScript code for barcode scanning
+    document.getElementById("barcode").addEventListener("input", function(event) {
+        var barcodeValue = event.target.value;
+        if (barcodeValue) {
+            // Increment the quantity sold when a barcode is scanned
+            var quantitySoldInput = document.getElementById("id_quantity_sold");
+            var currentQuantitySold = parseInt(quantitySoldInput.value);
+            quantitySoldInput.value = currentQuantitySold + 1;
+            
+            // Clear the barcode input field after scanning
+            event.target.value = "";
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="row mx-auto justify-content-center">
+
+
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart1" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+
+        
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart2" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+
+
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart3" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart4" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+        
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart5" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+        
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart6" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 90%;">
+            <div class="card-body">
+                <div id="chart7" style="width: 100%; height: 400px;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graph1 = {{ sales_graph | safe}};
+    Plotly.plot('chart1', graph1, {});
+
+    
+    var graph2 = {{ best_performing_product | safe}};
+    Plotly.plot('chart2', graph2, {});
+
+    var graph3 = {{ best_income_generating_product | safe}};
+    Plotly.plot('chart3', graph3, {});
+
+    var graph4 = {{ most_product_in_stock | safe}};
+    Plotly.plot('chart4', graph4, {});
+
+    var graph5 = {{ current_product_in_stock | safe}};
+    Plotly.plot('chart5', graph5, {});
+
+    var graph6 = {{ remaining_product_chart | safe}};
+    Plotly.plot('chart6', graph6, {});
+
+    var graph7 = {{ most_trending_product_graph | safe}};
+    Plotly.plot('chart7', graph7, {});
+
+</script>
+{% endblock %}
